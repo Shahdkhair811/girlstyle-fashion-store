@@ -1,0 +1,124 @@
+/* Load AFTER styles.css. Cairo font is loaded from index.html (no @import needed). */
+
+/* ===== Light palette (plum + rose + amber, no cold greys) ===== */
+:root {
+  --dark: #2a1638;
+  --text: #2a1638;
+  --card: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-bg-solid: rgba(255, 255, 255, 0.96);
+  --warn-bg: #fef3c7;
+  --warn-text: #92400e;
+  --track: #f3e8ff;
+  --sale: #f43f5e;
+  --gradient-sale: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #f59e0b 100%);
+  --sale-pulse: 0 0 20px rgba(244, 63, 94, 0.45);
+  color-scheme: light;
+}
+
+/* ===== Dark palette ===== */
+[data-theme="dark"] {
+  --primary: #f472b6;
+  --primary-dark: #ec4899;
+  --dark: #0f0719;
+  --text: #f5e9ff;
+  --card: #231436;
+  --nav-bg: rgba(24, 13, 38, 0.9);
+  --nav-bg-solid: rgba(24, 13, 38, 0.97);
+  --warn-bg: rgba(245, 158, 11, 0.15);
+  --warn-text: #fcd34d;
+  --track: #3a2652;
+  --gradient-light: linear-gradient(135deg, #150a24 0%, #1d1033 50%, #24131f 100%);
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .floating-shape {
+  opacity: 0.22;
+}
+
+/* ===== Map existing components to the palette ===== */
+body {
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+
+.navbar {
+  background: var(--nav-bg);
+}
+
+.navbar.scrolled {
+  background: var(--nav-bg-solid);
+}
+
+.product-card,
+.collection-card,
+.featured-collection,
+.countdown-item,
+.sale-product,
+.mega-deal,
+.filter-tab,
+.sale-category,
+.newsletter-input {
+  background: var(--card);
+}
+
+.filter-tab,
+.sale-category,
+.newsletter-input {
+  color: var(--text);
+}
+
+.nav-links li a,
+.hero-subtitle,
+.btn-secondary,
+.collections-subtitle,
+.featured-desc,
+.stat-label,
+.sale-subtitle,
+.countdown-label,
+.original-price,
+.product-stats,
+.mega-desc,
+.mega-original {
+  color: var(--text);
+}
+
+/* Keep hover colours working (same specificity as the rules above, so repeat them) */
+.nav-links li a:hover {
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  color: #fff;
+}
+
+.limited-stock {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
+.stock-bar {
+  background: var(--track);
+}
+
+.footer {
+  background: var(--dark);
+}
+
+/* ===== Arabic / RTL typography ===== */
+[dir="rtl"] body {
+  font-family: "Cairo", "Poppins", sans-serif;
+}
+
+[dir="rtl"] .hero-title,
+[dir="rtl"] .collections-title,
+[dir="rtl"] .section-title,
+[dir="rtl"] .featured-title,
+[dir="rtl"] .mega-title,
+[dir="rtl"] .sale-title,
+[dir="rtl"] .newsletter-title,
+[dir="rtl"] .logo {
+  line-height: 1.5;
+}
